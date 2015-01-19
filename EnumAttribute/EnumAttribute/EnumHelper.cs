@@ -17,13 +17,6 @@ namespace EnumAttribute
             where E : struct, IConvertible, IComparable, IFormattable
             where A : BaseEnumAttribute
         {
-            //Expanded LINQ Statement
-            //foreach (Enum e in Enum.GetValues(typeof(E)))
-            //{
-            //    if (e.Get<A>() == value)
-            //        return e;
-            //}
-
             return Enum.GetValues(typeof(E)).Cast<Enum>().FirstOrDefault(e => e.Get<A>() == value);
         }
 
